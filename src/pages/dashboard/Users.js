@@ -6,7 +6,7 @@ import UserRow from './UserRow';
 const Users = () => {
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ['users'],
-        queryFn: () => fetch('http://localhost:5000/user', {
+        queryFn: () => fetch('https://doctors-portal-server-taupe-six.vercel.app/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

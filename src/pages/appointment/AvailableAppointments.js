@@ -12,7 +12,7 @@ const AvailableAppointments = ({ date }) => {
 
     const { data: services, isLoading, refetch } = useQuery({
         queryKey: ['available', formatedDate],
-        queryFn: () => fetch(`http://localhost:5000/available?date=${formatedDate}`).then(res => res.json())
+        queryFn: () => fetch(`https://doctors-portal-server-taupe-six.vercel.app/available?date=${formatedDate}`).then(res => res.json())
     });
 
     if (isLoading) {
@@ -20,7 +20,7 @@ const AvailableAppointments = ({ date }) => {
     }
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/available?date=${formatedDate}`)
+    //     fetch(`https://doctors-portal-server-taupe-six.vercel.app/available?date=${formatedDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data))
     // }, [formatedDate]);

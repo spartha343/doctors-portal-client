@@ -8,7 +8,7 @@ const ManageDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState(null);
     const { data: doctors, isLoading, refetch } = useQuery({
         queryKey: ['doctors'],
-        queryFn: () => fetch('http://localhost:5000/doctor', {
+        queryFn: () => fetch('https://doctors-portal-server-taupe-six.vercel.app/doctor', {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

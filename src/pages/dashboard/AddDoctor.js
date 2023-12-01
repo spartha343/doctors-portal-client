@@ -9,7 +9,7 @@ const AddDoctor = () => {
 
     const { data: services, isLoading } = useQuery({
         queryKey: ['services'],
-        queryFn: () => fetch('http://localhost:5000/service').then(res => res.json())
+        queryFn: () => fetch('https://doctors-portal-server-taupe-six.vercel.app/service').then(res => res.json())
     });
 
     const imageStorageKey = process.env.REACT_APP_imageStorageKey;
@@ -34,7 +34,7 @@ const AddDoctor = () => {
                         img
                     }
 
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://doctors-portal-server-taupe-six.vercel.app/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

@@ -10,7 +10,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/booking/${id}`;
+    const url = `https://doctors-portal-server-taupe-six.vercel.app/booking/${id}`;
     const { data: appointment, isLoading } = useQuery({
         queryKey: ['booking', id],
         queryFn: () => fetch(url, {
