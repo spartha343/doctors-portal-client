@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import Loading from '../shared/Loading';
 
 const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
@@ -87,6 +88,9 @@ const CheckoutForm = ({ appointment }) => {
                     console.log(data);
                 })
         }
+    }
+    if (processing) {
+        return <Loading />
     }
 
     return (
