@@ -3,10 +3,11 @@ import React from 'react';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import Loading from '../shared/Loading';
 
 const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
     const { _id, name, slots, price } = treatment;
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const formatedDate = format(date, 'PP');
 
     const handleBooking = event => {
@@ -44,6 +45,9 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
                 // to close the modal
                 setTreatment(null);
             })
+    }
+    if (loading) {
+        return <Loading />
     }
     return (
         <div>
